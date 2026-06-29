@@ -18,5 +18,14 @@ pipeline {
                 '''
             }
         }
+        stage('Test'){
+            steps {
+                sh '''
+                    echo "Start Testing =========>"
+                    npm test -- --watchAll=false
+                    echo "End Testing"
+                '''
+            }
+        }
     }
 }
