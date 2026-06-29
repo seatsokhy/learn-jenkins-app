@@ -5,7 +5,6 @@ pipeline {
                 reuseNode true
             }
         }
-
     stages {
         stage('build') {
             steps {
@@ -25,6 +24,11 @@ pipeline {
                     echo "End Testing"
                 '''
             }
+        }
+    }
+    post{
+        always:{
+            junit 'test-results/junit.xml'
         }
     }
 }
