@@ -1,12 +1,13 @@
 pipeline {
-    agent{
-            docker {
-                image 'node:18-alpine' 
-                reuseNode true
-            }
+    agent {
+        docker {
+            image 'node:18-alpine'
+            reuseNode true
         }
+    }
+
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
                 sh '''
                     node --version
@@ -16,7 +17,8 @@ pipeline {
                 '''
             }
         }
-        stage('Test'){
+
+        stage('Test') {
             steps {
                 sh '''
                     echo "Start Testing =========>"
@@ -26,23 +28,23 @@ pipeline {
             }
         }
 
-        stage('pararell-running'){
-             parallel {                 // parallel container
-                stage('pararell start') {  // child stage 1
+        stage('Parallel-Running') {
+            parallel {                 // parallel container
+                stage('Parallel Start') {  // child stage 1
                     steps {
-                        echo 'pararell starting'
+                        echo 'Parallel starting'
                     }
                 }
-                stage('pararell start') {  // child stage 2
+                stage('Parallel End') {  // child stage 2
                     steps {
-                        echo 'pararell Ending'
+                        echo 'Parallel ending'
                     }
                 }
             }
         }
-
     }
-    post{
+
+    post {
         always {
             junit 'test-results/junit.xml'
         }
