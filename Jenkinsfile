@@ -28,6 +28,16 @@ pipeline {
             }
         }
 
+        stage('deploy') {
+            steps {
+                sh '''
+                    install netlify-cli@20.1.1
+                    node_modules\.bin\netlify --version
+                '''
+            }
+        }
+
+
         stage('Parallel-Running') {
             parallel {                 // parallel container
                 stage('Parallel Start') {  // child stage 1
