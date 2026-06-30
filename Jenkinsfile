@@ -5,6 +5,9 @@ pipeline {
             reuseNode true
         }
     }
+    environment{
+        NETLIFY_SITE_ID="hello this is a secrect you can know it!!"
+    }
 
     stages {
         stage('Build') {
@@ -32,7 +35,8 @@ pipeline {
             steps {
                 sh '''
                    npm install netlify-cli@20.1.1
-                    ./node_modules/.bin/netlify --version
+                   ./node_modules/.bin/netlify --version
+                   echo "Deploy to Production with ID $NETLIFY_SITE_ID"
                 '''
             }
         }
