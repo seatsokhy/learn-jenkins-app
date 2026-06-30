@@ -25,6 +25,22 @@ pipeline {
                 '''
             }
         }
+
+        stage('pararell-running'){
+             parallel {                 // parallel container
+                stage('pararell start') {  // child stage 1
+                    steps {
+                        echo 'pararell starting'
+                    }
+                }
+                stage('pararell start') {  // child stage 2
+                    steps {
+                        echo 'pararell Ending'
+                    }
+                }
+            }
+        }
+
     }
     post{
         always {
