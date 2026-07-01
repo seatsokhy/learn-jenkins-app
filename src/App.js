@@ -16,7 +16,7 @@ function App() {
         </a>
       </header>
       <p>
-          Application version: Deployed  and Accepted.
+          Application version: Deployed  and Accepted waitting 30 second and rollback.
       </p>
     </div>
   );
