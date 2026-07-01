@@ -38,7 +38,7 @@ pipeline {
             steps {
                 timeout(time: 30, unit: 'SECONDS') {
                     script {
-                        input message: 'Build and Test are success. Deploy now?', ok: 'Yes'
+                        input message: 'Build and Test are success. Deploy now?', ok: 'Yes',submitter: 'piseth'
                     }
                 }
             }
