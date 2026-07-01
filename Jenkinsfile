@@ -38,14 +38,14 @@ pipeline {
                     reuseNode true
                 }
             }
-                steps {
-                    sh '''
-                        node --version
-                        npm ci
-                        npx playwright --version
-                        npx playwright test
-                    '''
-                }
+            steps {
+                sh '''
+                    node --version
+                    npm ci
+                    npx playwright --version
+                    npx playwright test
+                '''
+            }
 
             steps {
                 sh '''
