@@ -33,6 +33,15 @@ pipeline {
                 '''
             }
         }
+        stage('Approval'){
+
+            steps {
+                script {
+                    input message: 'Build and Test are success. Deploy now?', ok: 'Yes'
+                }
+            }
+
+        }
         stage('Deploy') {
 
             steps {
