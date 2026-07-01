@@ -16,7 +16,7 @@ function App() {
         </a>
       </header>
       <p>
-          Application version: Deployed  waitting for approval!!
+          Application version: Deployed  waitting.
       </p>
     </div>
   );
