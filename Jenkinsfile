@@ -38,6 +38,14 @@ pipeline {
                     reuseNode true
                 }
             }
+                steps {
+                    sh '''
+                        node --version
+                        npm ci
+                        npx playwright --version
+                        npx playwright test
+                    '''
+                }
 
             steps {
                 sh '''
@@ -50,6 +58,12 @@ pipeline {
         }
 
         stage('deploy') {
+                agent {
+                    docker {
+                        image 'node:18-alpine'
+                        reuseNode true
+                    }
+                }
             steps {
                 sh '''
                    npm install netlify-cli@20.1.1
